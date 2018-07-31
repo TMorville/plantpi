@@ -78,8 +78,8 @@ def update_graph(data_names):
             x=list(times),
             y=list(data_dict[data_name]),
             name='Scatter',
-            fill="tozeroy",
-            fillcolor="#6897bb"
+#            fill="tozeroy",
+#            fillcolor="#6897bb"
             )
 
         graphs.append(html.Div(dcc.Graph(
