@@ -15,18 +15,19 @@ temp = deque(maxlen=max_length)
 lumen = deque(maxlen=max_length)
 humidity = deque(maxlen=max_length)
 
-data_dict = {"Temperature":temp,
-"Lumen": lumen,
-"Humidity": humidity}
+data_dict = {"Temperature": temp,
+             "Lumen": lumen,
+             "Humidity": humidity}
+
 
 def update_obd_values(times, temp, lumen, humidity):
 
     times.append(time.time())
     if len(times) == 1:
-        #starting relevant values
-        temp.append(random.randrange(15,30))
-        lumen.append(random.randrange(0,25))
-        humidity.append(random.randrange(10,20))
+        # starting relevant values
+        temp.append(random.randrange(15, 30))
+        lumen.append(random.randrange(0, 25))
+        humidity.append(random.randrange(10, 20))
     else:
         for data_of_interest in [temp, lumen, humidity]:
             data_of_interest.append(data_of_interest[-1]+data_of_interest[-1]*random.uniform(-0.0001,0.0001))
@@ -63,14 +64,12 @@ def update_graph(data_names):
     graphs = []
     update_obd_values(times, temp, lumen, humidity)
 
-
     if len(data_names)>2:
         class_choice = 'col s12 m6 l4'
     elif len(data_names) == 2:
         class_choice = 'col s12 m6 l6'
     else:
         class_choice = 'col s12'
-
 
     for data_name in data_names:
 
